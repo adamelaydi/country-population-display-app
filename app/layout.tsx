@@ -1,7 +1,8 @@
+import ThemeButton from "./components/ThemeButton";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,25 +24,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+    <html data-theme="light"
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f1f1f1]">
-        <header className="shadow-[0_0px_24px_rgba(0,0,0,0.22)] h-fit w-full p-[10]">
+      <body className="min-h-full flex flex-col bg-[rgb(241,241,241)] dark:text-[#ffffff]  dark:bg-[#232222]">
+        <header className="dark:bg-[#232222] dark:text-[#ffffff] shadow-[0_0px_24px_rgba(0,0,0,0.22)] h-fit w-full p-[10]">
           <nav className=" max-w-[1100] m-auto">
             <ul className="flex justify-between p-[5] capitalize">
               <li className="font-bold text-[20px]">where is the world?</li>
               <li className="font-semibold capitalize">
-                <button className="Theme font-semibold capitalize py-[5] px-[7] rounded-[7]  hover:bg-[#ececec]">
-                <span className="dark font-semibold capitalize">dark</span>
-                <span className="light font-semibold capitalize">light</span>
-                </button>
+                <ThemeButton />
                 </li>
             </ul>
           </nav>
         </header>
-        {children}
+        <NuqsAdapter>
+          {children}
+        </NuqsAdapter>
         
       </body>
     </html>
