@@ -2,7 +2,7 @@ import CounryCard from "./components/CounryCard";
 import FilterInput from "./components/FilterInput";
 import data from "../public/data.json"
 import Search from "./components/Search";
-import { filterCountries } from "./hooks/filterHook";
+import { filterCountries } from "./hooks/filterhook";
 
 export default async function Home({
   searchParams,
