@@ -27,7 +27,23 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#f1f1f1]">
+        <header className="shadow-[0_0px_24px_rgba(0,0,0,0.22)] h-fit w-full p-[10]">
+          <nav className=" max-w-[1100] m-auto">
+            <ul className="flex justify-between p-[5] capitalize">
+              <li className="font-bold text-[20px]">where is the world?</li>
+              <li className="font-semibold capitalize">
+                <button className="Theme font-semibold capitalize py-[5] px-[7] rounded-[7]  hover:bg-[#ececec]">
+                <span className="dark font-semibold capitalize">dark</span>
+                <span className="light font-semibold capitalize">light</span>
+                </button>
+                </li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+        
+      </body>
     </html>
   );
 }
